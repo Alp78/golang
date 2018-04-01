@@ -1,0 +1,6 @@
+{
+    "address":":8088",
+    "route":"/poem",
+    "valid":["shakespeare", "baudelaire"],
+    "tokens":["the", "The"]
+}
