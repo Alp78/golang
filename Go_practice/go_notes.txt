@@ -1,0 +1,107 @@
+
+Go CLI: Command Line Interface
+
+go build:	compiles a bunch of go source code files
+go run: 	compiles and executes one or two files
+
+go fmt:		formats all the code in each file in the current directory
+
+go install:	compiles and installs a package
+go get:		downloads the raw source code of someone else's package
+
+go test:	runs any tests associated with the current project
+
+Package == Project == Workspace
+-> a package is a collection of source files
+
+2 types of packages:
+	a) Executable:	generates a file that we can run
+	b) Reusable:	code used as helper (dependency)
+
+package main:	mandatory to compile an executable. Defines a package that can be
+				compiled and then executed.
+				-> must have a func called 'main' which is ran automatically
+				-> any other package name defines a package
+				that can be used as a dependency
+
+import:		access all exported code of the imported package
+
+Type conversion
+greeting := "Hi there!"
+greetByte := []byte(greeting)
+fmt.Println(greetByte)
+
+
+struct: data structure -> collection of properties that are related
+
+
+Pointers:
+- turn address into value with: *address
+- turn value into address with: &value
+
+
+Value Types:
+int
+float
+string
+bool
+structs
+
+Reference Types:
+slice
+map
+channel
+pointer
+function
+
+
+Concrete Types:
+map, struct, int, string	->	create a value
+
+Abstract Types:
+Interface	->	doesn't create any value, contract 
+
+
+Reader interface:
+specifies Read function taking any sort of []byte
+
+type Reader interface {
+        Read(p []byte) (n int, err error)
+}
+
+concurrency:
+multiple threads executing code.
+If one thread blocks, another one is picked up and worked on.
+-> 1 CPU core by default
+
+parallelism:
+multiple threads executed at the exact same time.
+-> requires multiple CPU cores
+
+Program -> Main routine + go routines
+
+go scheduler -> go routines
+
+channel: communicate between different running go routines
+
+channel <- 5:	send the value 5 into this channel
+
+myNumber <- channel: 	wait for a value to be sent into the channel-
+						When we get one, assign the value to myNumber
+
+fmt.Println(<- channel):	Wait for a value to be sent into the channel.
+							When we get one, log it out immediately.
+
+
+Anonymous function: doesn't have a name
+
+Higher-order function: 
+either:
+a) takes one or more functions as arguments
+b) returns a function as its result
+
+Closure: anonymous function which access the variables of its surrounding environment
+
+Map function: function that operates on every elements of a collection
+
+
